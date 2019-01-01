@@ -31,4 +31,6 @@ def gcd(a, b):
 def exp_modulus(a, b, c):
   return pow(a, b, c)
 
-def
+def 
+
+
