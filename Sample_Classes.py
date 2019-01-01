@@ -47,6 +47,9 @@ class Dragon():
     def get_toughness(self):
         return self.__toughness
     
+    def get_luck(self):
+        return self.__luck
+    
     def add_abilities(self):
         self.abilites.append()
     
@@ -57,12 +60,19 @@ class Dragon():
         while toughness=None:
             toughness = 4
             return toughness
+        while luck=None:
+            luck = 1
+            return luck
+        
     def grant_skill(self):
         while abilities=None:
-            abilities ="Flying, Trample"
+            abilities ="Flying"
             return abilities
     
 def main():
     First_Dragon = Dragon()
+    First_Dragon.grant_skill()
+    First_Dragon.stats_up()
+    print(First_Dragon.get_power(), First_Dragon.get_toughness(), First_Dragon.get_luck())
     
-    
+main()
