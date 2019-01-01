@@ -1,5 +1,7 @@
 #This is the practice coin class that I am going to be usign
 import random
+from bs4 import BeautifulSoup
+
 
 class Coin():
 
@@ -34,19 +36,19 @@ flipper()
 class Dragon():
     
     def __init__(self, abilities=None, power=None, toughness=None, luck=None):
-        self.__abilites = abilites
+        self.__abilites = []
         self.__power = power
         self.__toughness = toughness
         self.__luck = luck
-        
-    def get_abilities(self):
-        return self.__abilities
     
     def get_power(self):
         return self.__power
     
     def get_toughness(self):
         return self.__toughness
+    
+    def add_abilities(self):
+        self.abilites.append()
     
     def stats_up(self):
         while power=None:
@@ -63,4 +65,4 @@ class Dragon():
 def main():
     First_Dragon = Dragon()
     
-    First_Dragon
+    
