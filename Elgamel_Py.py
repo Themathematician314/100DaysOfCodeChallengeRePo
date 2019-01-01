@@ -54,5 +54,3 @@ def prime_maker(true_prime):
         else: # loop not exited via break
     print('prime')
 
-
-def Better_Elgamel_Pub(true_prime, true_modulo)
