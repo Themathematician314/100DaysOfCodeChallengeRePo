@@ -41,15 +41,16 @@ class Dragon():
         self.__toughness = 0
         self.__luck = 0
 
-    
     def power_up(self):
         if self.__power == 0:
             self.__power = random.randint(4, 10)
             return self.__power
+        
     def toughness_up(self):
         if self.__toughness == 0:
             self.__toughness = random.randint(4, 10)
             return self.__toughness
+        
     def luck_up(self):
         if self.__luck == 0:
             self.__luck = random.randint(0, 5)
@@ -81,3 +82,27 @@ def main():
     print(First_Dragon.get_power(), First_Dragon.get_toughness(), First_Dragon.get_luck())
     
 main()
+
+
+
+class Public_Key(object):
+    
+    def __init__(self, prime=None, g=None, x=None, confidence=None):
+        self.__prime = prime
+        self.__g = g
+        self.__x = x
+        self.__confidence = confidence
+        
+class Private_Key(object):
+    
+    def __init__(self, prime=None, g=None, x=None, confidence=None):
+        self.__prime = prime
+        self.__g = g
+        self.__x = x
+        self.__confidence = confidence
+        
+def gcd(a, b):
+    return math.gcd(a, b)
+
+def power(base, exponent, modulo):
+    return 
