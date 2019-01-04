@@ -35,7 +35,7 @@ flipper()
 
 class Dragon():
     
-    def __init__(self, abilities=None, power=None, toughness=None, luck=None):
+    def __init__(self, power=None, toughness=None, luck=None):
         self.__abilities = []
         self.__power = 0
         self.__toughness = 0
@@ -55,11 +55,6 @@ class Dragon():
         if self.__luck == 0:
             self.__luck = random.randint(0, 5)
             return self.__luck
-
-    def grant_skill(self):
-        while self.__abilities == None:
-            self.__abilities == "Flying"
-            return self.__abilities
     
     def get_power(self):
         return self.__power
@@ -69,19 +64,20 @@ class Dragon():
     
     def get_luck(self):
         return self.__luck
-    
-    def add_abilities(self):
-        self.__abilites.append()
+
+    def grant_skill(self, ability):
+        self.__abilities.append(ability)
+
+    def get_skill(self):
+        return self.__abilities
     
 def main():
     First_Dragon = Dragon()
-    First_Dragon.grant_skill()
+    ability = input("Enter an ability: ")
+    First_Dragon.grant_skill(ability)
     First_Dragon.power_up()
     First_Dragon.toughness_up()
     First_Dragon.luck_up()
-    print(First_Dragon.get_power(), First_Dragon.get_toughness(), First_Dragon.get_luck())
-    ability = input("Enter an ability: ")
-    First_Dragon.add_abilities()
+    print(First_Dragon.get_power(), First_Dragon.get_toughness(), First_Dragon.get_luck(), First_Dragon.get_skill())
     
 main()
-
