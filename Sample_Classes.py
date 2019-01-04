@@ -80,5 +80,8 @@ def main():
     First_Dragon.toughness_up()
     First_Dragon.luck_up()
     print(First_Dragon.get_power(), First_Dragon.get_toughness(), First_Dragon.get_luck())
+    ability = input("Enter an ability: ")
+    First_Dragon.add_abilities()
     
 main()
+
