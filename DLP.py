@@ -1,3 +1,6 @@
+import math
+import random
+
 def main():
   
     g = int(input("Enter a number: "))
