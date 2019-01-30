@@ -66,12 +66,9 @@ def vigenere_cipher():
     for i in coded_list:
         i = i % 26
         Cipher_Output.append(reconverter_dictionary[i])
-    C_output = lambda lst, sz: [lst[i:i+sz] for i in range(0, len(lst), sz)]
-    print(C_output(Cipher_Output, len(cipher_key)))
+    print(Cipher_Output)
 
-"""vigenere_cipher()"""
-
-def inverse_function():
+def inverse_function_wo_cipher_key():
     #We need a counter for each elelemt that we can access. Should I make a list or should I focus on creating just blank element that store the values in it?
     a = b = c = d = e = f = g = h = i = j = k = l = m = n = o = p = q = r = s = t = u = v = w = x = y = z = 0
     Empty_List = []
@@ -147,4 +144,51 @@ def inverse_function():
     #after running through the exception case we can now statistlically analyze the data
     # The question is do I want to make a dictionary of the code? Let's do it
 
-inverse_function()
+def inverse_function_with_key():
+    Empty_List = []
+    cipher_key_list = []
+    Decrypted = []
+    cipher_text = input('Enter the text that you want to decipher: ')
+    converter_dictionary = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7, 'i': 8, 'j': 9, 'k': 10, 'l': 11, 'm': 12, 'n': 13, 'o': 14, 'p': 15, 'q': 16, 'r': 17, 's': 18, 't': 19, 'u': 20, 'v': 21, 'w': 22, 'x': 23, 'y': 24, 'z': 25}
+    #We want to remove all spacing from the cipher text if possible. We know that if we remove the spacing from the cipher text, we then can analyze the count of how many elements there are.
+    cipher_text = cipher_text.lower()
+    for letter in cipher_text:
+        Empty_List.append(letter)
+    for inputs in Empty_List:
+        if inputs is ' ':
+            Empty_List.remove(' ')
+        else:
+            pass
+    given_cipher_key = input("Enter the given cipher key:")
+    given_cipher_key = given_cipher_key.lower()
+    for char in given_cipher_key:
+        cipher_key_list.append(converter_dictionary[char])
+    #The math here is that we do c_i + k_i % 26. Then convert it back into the dictionary
+    #First we need to compare the lengths first.
+    v_1 = len(cipher_text)
+    v_2 = len(given_cipher_key)
+    if v_1 < v_2:
+        for i in range(0, v_1):
+            difference = Empty_List[i] - cipher_key_list[i]
+            if difference > 0:
+                Decrypted.append(converter_dictionary(difference))
+            else:
+                Decrypted.append(converter_dictionary(difference+25))
+    else:
+        for i in range(0, v_1):
+            if i < v_2:
+                difference = Empty_List[i] - cipher_key_list[i]
+                if difference > 0:
+                    Decrypted.append(converter_dictionary(difference))
+                else:
+                    Decrypted.append(converter_dictionary(difference+25))
+            else:
+                index_diff = i % v_2:
+                difference = Empty_List[index_diff] - cipher_key_list[index_diff]
+                if difference > 0:
+                    Decrypted.append(converter_dictionary(difference))
+                else:
+                    Decrypted.append(converter_dictionary(difference+25))
+    
+main()
+inverse_function_with_key()
